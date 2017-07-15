@@ -1,7 +1,9 @@
 ﻿namespace Calc
 {
-    public static class Calculator
+    public class Calculator
     {
-        public static int Add(int x, int y) => x + y;
+        public int Result { get; private set; }
+
+        public void Add(int x, int y) => Result = x + y;
     }
 }

@@ -5,27 +5,33 @@ namespace Calc.Tests
     public class CalculatorTests
     {
         [Fact]
-        public void Add_AddingTwoPositiveNumbers1And2_ShouldReturn3()
+        public void Add_AddingTwoPositiveNumbers1And2_ResultIs3()
         {
-            var actual = Calculator.Add(1, 2);
+            var calculator = CreateCalculator();
 
-            Assert.Equal(3, actual);
+            calculator.Add(1, 2);
+
+            Assert.Equal(3, calculator.Result);
         }
 
         [Fact]
-        public void Add_AddingTwoNegativeNumbersNegative1AndNegative2_ShouldReturnNegative3()
+        public void Add_AddingTwoNegativeNumbersNegative1AndNegative2_ResultIsNegative3()
         {
-            var actual = Calculator.Add(-1, -2);
+            var calculator = CreateCalculator();
 
-            Assert.Equal(-3, actual);
+            calculator.Add(-1, -2);
+
+            Assert.Equal(-3, calculator.Result);
         }
 
         [Fact]
-        public void Add_AddingOneNegativeNumbers1AndNegative2_ShouldReturnNegative1()
+        public void Add_AddingNegativeAndPositveNumbers1AndNegative2_ResultIsNegative1()
         {
-            var actual = Calculator.Add(1, -2);
+            var calculator = CreateCalculator();
 
-            Assert.Equal(-1, actual);
+            calculator.Add(1, -2);
+
+            Assert.Equal(-1, calculator.Result);
         }
 
         [Theory]
@@ -33,11 +39,15 @@ namespace Calc.Tests
         [InlineData(-1, -2, -3)]
         [InlineData(1, -2, -1)]
         [InlineData(100, 200, 300)]
-        public void Add_TwoNumbers_ShouldReturnExpectedValue(int x, int y, int expected)
+        public void Add_TwoNumbers_ResultMustBeTheExpectedValue(int x, int y, int expected)
         {
-            var actual = Calculator.Add(x, y);
+            var calculator = CreateCalculator();
 
-            Assert.Equal(expected, actual);
+            calculator.Add(x, y);
+
+            Assert.Equal(expected, calculator.Result);
         }
+
+        private static Calculator CreateCalculator() => new Calculator();
     }
 }
