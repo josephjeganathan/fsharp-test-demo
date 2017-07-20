@@ -3,6 +3,8 @@
 open Xunit
 open Calc
 open FsCheck
+open FsCheck.Xunit
+open FsCheck.Gen
 
 let add x y =
     let calculator = new Calculator()
@@ -43,3 +45,8 @@ let ``When two number added then an expected number must be retuned``() =
         add x y = x + y
 
     Check.QuickThrowOnFailure ``Add x, y must be x + y``
+
+[<Property>]
+let ``When two number added then an expected number must be retuned (v2)``(x, y) =
+
+    add x y = x + y

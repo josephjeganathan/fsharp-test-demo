@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using FsCheck;
+using FsCheck.Xunit;
+using Xunit;
 
 namespace Calc.Tests
 {
@@ -46,6 +48,16 @@ namespace Calc.Tests
             calculator.Add(x, y);
 
             Assert.Equal(expected, calculator.Result);
+        }
+
+        [Property]
+        public bool Add_TwoNumbers_Result(int x, int y)
+        {
+            var calculator = CreateCalculator();
+
+            calculator.Add(x, y);
+
+            return calculator.Result == x + y;
         }
 
         private static Calculator CreateCalculator() => new Calculator();
