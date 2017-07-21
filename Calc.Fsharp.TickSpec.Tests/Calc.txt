@@ -1,4 +1,4 @@
-﻿Feature: Refunded or replaced items should be returned to stock
+﻿Feature: Adding two numbers
 
 
 Scenario 1: Adding two positive numbers
