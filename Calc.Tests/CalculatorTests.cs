@@ -1,11 +1,20 @@
-﻿using FsCheck;
+﻿using System;
+using FsCheck;
 using FsCheck.Xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Calc.Tests
 {
     public class CalculatorTests
     {
+        private readonly ITestOutputHelper _outputHelper;
+
+        public CalculatorTests(ITestOutputHelper outputHelper)
+        {
+            _outputHelper = outputHelper;
+        }
+
         [Fact]
         public void Add_AddingTwoPositiveNumbers1And2_ResultIs3()
         {
@@ -56,6 +65,8 @@ namespace Calc.Tests
             var calculator = CreateCalculator();
 
             calculator.Add(x, y);
+
+            _outputHelper.WriteLine($"x: {x}, y: {y}, result: {calculator.Result}");
 
             return calculator.Result == x + y;
         }

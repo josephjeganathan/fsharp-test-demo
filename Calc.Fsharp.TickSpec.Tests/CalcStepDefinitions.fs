@@ -4,7 +4,7 @@ open TickSpec
 open NUnit.Framework
 open Calc
 
-type CalcFeature () = inherit FeatureFixture("Calc.txt")
+type CalcFeature () = inherit FeatureFixture("Calc.feature")
 
 let mutable calc = Calculator()
 

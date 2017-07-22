@@ -1,17 +1,17 @@
 ﻿Feature: Adding two numbers
 
 
-Scenario 1: Adding two positive numbers
+Scenario: Adding two positive numbers
   Given a calculator
    When 1 and 2 is added 
    Then result must be 3
 
-Scenario 2: Adding two negative numbers
+Scenario: Adding two negative numbers
   Given a calculator
    When -1 and -2 is added 
    Then result must be -3
 
-Scenario 3: Negative and positve numbers
+Scenario: Negative and positve numbers
   Given a calculator
    When 1 and -2 is added 
    Then result must be -1
